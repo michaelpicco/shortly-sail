@@ -82,9 +82,9 @@ Ex. http://localhost:8000/api/analytics/{log_id}
 
 ## Thank You
 
-Thank you for the consideration.  I didn't want to be too simplistic, but also didn't want to get overly complicated or over-engineer things and while there's definitely a lot more that can be done and added, hopefully this works well to cover the basics.  
+Thank you for the consideration.  I didn't want to be too simplistic, but also didn't want to get overly complicated or over-engineer things and while there's definitely a lot more that can be done and added, hopefully this works well!
 
-Please let me know if there's anything else I can provide!
+Please let me know if there's anything else I can provide.
 
 Thanks,
 -Michael

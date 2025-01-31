@@ -1,51 +1,84 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+## About Shortly
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Shortly is a web application to create and serve shortened URLs.  By uploading a CSV with URLs to be shortened, shortly will convert those links from:
 
-## About Laravel
+```
+https://www.mysite.com/path/path2
+```
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+To...
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+```
+http://localhost:8000/s/Eds0yek90T
+```
 
 
-## Contributing
+## Installation
+```
+git clone git@github.com:michaelpicco/shortly.git shortly
+cd shortly
+composer install
+npm install && npm build dev
+php artisan key:generate
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Then you need to put your database credentials in the .env file, which is currently using MySQL, and run the migrations.
 
-## Code of Conduct
+```
+php artisan migrate
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+There's a small seeder for the URLs table, which you can run using, but you can just start uploading a CSV:
+```
+php artisan db:seed --class-ShortUrlsSeeder
+```
 
-## Security Vulnerabilities
+Then to run the development server, run this-
+```
+composer run dev
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Usage
 
-## License
+Shortly is fairly simple to use.  Following the links and the menu, you can do the following:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+ - Upload a CSV file containing URLs to be shortened
+ - View a list of all the shortened URLs in the system
+ - View details of a sepcific URL by following the clickable links
+ - View log/analytic information for the entire system, which can be drilled down to specific URLs as well
+
+
+## API
+
+There are 2 endpoionts setup to retrieve URL information.  
+
+The first is for a list of the URLs:
+```
+Ex. http://localhost:8000/api/urls
+```
+Or get a specific URL record by the short hash ID
+```
+Ex. http://localhost:8000/api/urls/{shorturl}
+```
+
+The second is for the log/analytics:
+
+For a list of log entries:
+```
+Ex. http://localhost:8000/api/analytics
+```
+Or get a specific log record by the ID
+```
+Ex. http://localhost:8000/api/analytics/{log_id}
+```
+
+
+## Thank You
+
+Thank you for the consideration.  I didn't want to be too simplistic, but also didn't want to get overly complicated or over-engineer things and while there's defintiely a lot more that can be done and added, hopefully this works well!  
+
+Please let me know if there's anything else I can provide!
+
+-M
+
+

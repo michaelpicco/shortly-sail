@@ -9,6 +9,16 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 // A route to grab all log entries
+Route::get('/urls', function () {
+    return ShortUrls::all();
+});
+
+// Route to get a specific data for a URL ID in the short_url table
+Route::get('/urls/{hash}', function (string $hash) {
+    return ShortUrls::where('hash', $hash)->first();
+});
+
+// A route to grab all log entries
 Route::get('/analytics', function () {
     return ShortUrlsLog::all();
 });

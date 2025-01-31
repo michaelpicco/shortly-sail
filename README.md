@@ -15,28 +15,35 @@ http://localhost:8000/s/Eds0yek90T
 
 ## Installation
 ```
-git clone git@github.com:michaelpicco/shortly.git shortly
-cd shortly
+git clone git@github.com:michaelpicco/shortly-sail.git shortly-sail
+cd shortly-sail
 composer install
 npm install && npm build dev
 php artisan key:generate
 ```
 
+To start the application server
+```
+./vendor/bin/sail up
+```
+
+App should launch on localhost, possilby on port 80.  Should see a message similiar to:
+```
+Server running on [http://0.0.0.0.:80]
+```
+
 Then you need to put your database credentials in the .env file, which is currently using MySQL, and run the migrations.
 
 ```
-php artisan migrate
+./vendor/bin/sail migrate
 ```
 
 There's a small seeder for the URLs table, which you can run using, but you can just start uploading a CSV:
 ```
-php artisan db:seed --class-ShortUrlsSeeder
+./vendor/bin/sail artisan db:seed --class-ShortUrlsSeeder
 ```
 
-Then to run the development server, run this-
-```
-composer run dev
-```
+To manage the MySQL server you need to shell into the container.
 
 ## Usage
 

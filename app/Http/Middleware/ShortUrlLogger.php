@@ -10,11 +10,13 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ShortUrlLogger
 {
-    private ShortUrlLogService $shortUrlLogService;
 
-    public function __construct(ShortUrlLogService $shortenUrlLogService){
-        $this->shortUrlLogService = $shortenUrlLogService;
-    }
+    /**
+     * @param ShortUrlLogService $shortUrlLogService
+     */    
+    public function __construct(
+        private ShortUrlLogService $shortUrlLogService
+    ){}
 
     /**
      * Handle an incoming request.

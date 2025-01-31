@@ -3,18 +3,15 @@
 namespace App\Http\Services;
 
 use App\Models\ShortUrls;
-use Illuminate\Support\Facades\Redirect;
 
 class ShortUrlService
 {
-    private ShortUrls $shortUrlModel;
-
     /**
-     * @param ShortUrls $shortUrl
+     * @param ShortUrls $shortUrlModel
      */
-    public function __construct(ShortUrls $shortUrl) {
-        $this->shortUrlModel = $shortUrl;
-    }
+    public function __construct(
+        private ShortUrls $shortUrlModel
+    ) {}
 
     public function findByHash(string $hash): ShortUrls|null {
         $locatedRecord = $this->shortUrlModel->where('hash', '=', $hash)->first();

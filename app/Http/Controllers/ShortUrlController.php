@@ -8,14 +8,16 @@ use Illuminate\Support\Facades\Redirect;
 
 class ShortUrlController extends Controller
 {
-    private ShortUrlService $shortenUrlService;
 
-    public function  __construct(ShortUrlService $shortenUrlService) {
-        $this->shortenUrlService = $shortenUrlService;
-    }
+    /**
+     * @param ShortUrlService $shortUrlModel
+     */
+    public function  __construct(
+        private ShortUrlService $shortUrlService
+    ) {}
 
     public function view(string $hash) {
-        $match = $this->shortenUrlService->findByHash($hash);
+        $match = $this->shortUrlService->findByHash($hash);
 
         // Send to home if not valid hash found
         return ($match ? Redirect::to($match->url) : Redirect::to('/'));

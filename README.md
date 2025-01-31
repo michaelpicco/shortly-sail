@@ -1,4 +1,4 @@
-b9## About Shortly
+8b9## About Shortly
 
 Shortly is a web application to create and serve shortened URLs.  By uploading a CSV with URLs to be shortened, shortly will convert those links from:
 
@@ -82,9 +82,9 @@ Ex. http://localhost:8000/api/analytics/{log_id}
 
 ## Thank You
 
-Thank you for the consideration.  I didn't want to be too simplistic, but also didn't want to get overly complicated or over-engineer things and while there's definitely a lot more that can be done and added, hopefully this works well!  
+Thank you for the consideration.  I didn't want to be too simplistic, but also didn't want to get overly complicated or over-engineer things and while there's definitely a lot more that can be done and added, hopefully this works well to cover the basics.  
 
-Please let me know if there's anything else I can provide.
+Please let me know if there's anything else I can provide!
 
 Thanks,
 -Michael

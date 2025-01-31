@@ -38,7 +38,16 @@
                                 <div class="alert alert-success text-4xl">
                                     {{ session('success') }}
                                 </div>
-
+                            
+                                @if (Route::has('urls'))
+                                    <a
+                                        href="{{ route('urls') }}"
+                                        class="text-3xl rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+                                    >
+                                        See a list of URLs
+                                    </a> 
+                                @endif  
+                            
                                 @if (Route::has('upload'))
                                     <a
                                         href="{{ route('upload') }}"

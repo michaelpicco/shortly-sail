@@ -27,7 +27,7 @@ class ShortUrlLogService
                 'ip' => request()->server('REMOTE_ADDR'),
                 'browser' => request()->server('HTTP_USER_AGENT'),
                 'platform' => str_replace("\"", "", request()->server('HTTP_SEC_CH_UA_PLATFORM')),
-                'referrer' => request()->headers('HTTP_REFERER'),
+                'referrer' => '', //  FIX ME request()->headers('HTTP_REFERER'),
                 'created_at' => Carbon::Now()
             ]);            
         }

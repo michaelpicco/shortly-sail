@@ -43,7 +43,6 @@ class UploadController extends Controller
                 $newUrlHash = Str::random(10);
             } while($hashExists = ShortUrls::where('hash', $newUrlHash)->first()); 
 
-            //dd($data);
             if (isset($data[1])) {
                 ShortUrls::insert([
                     'title' => $data[0],

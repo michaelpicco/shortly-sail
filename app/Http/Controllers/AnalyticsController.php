@@ -9,7 +9,6 @@ use Illuminate\Http\Request;
 class AnalyticsController extends Controller
 {
     //
-
     public function view() {
         $logs = ShortUrlsLog::with('shorturls')->get();
 
@@ -18,10 +17,10 @@ class AnalyticsController extends Controller
     }  
 
     public function details(string $hash) {
-        $details = ShortUrls::where('hash', '=', $hash)->with('logs')->first();
+        $details = ShortUrls::where('hash', $hash)->with('logs')->first();
 
         if (!$details) {
-            throw new \Exception('No matching hash details found.');
+            throw new \Exception('No matching short URL details found.');
         }
 
         // Load the view

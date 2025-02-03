@@ -3,7 +3,6 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Services\ShortUrlLogService;
 use Symfony\Component\HttpFoundation\Response;

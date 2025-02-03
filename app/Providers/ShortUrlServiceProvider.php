@@ -14,7 +14,7 @@ class ShortUrlServiceProvider extends ServiceProvider
     public function register(): void
     {
         // Setup the service
-        $this->app->bind('App\Http\Services\ShortenUrlService', function($app) { return new ShortUrlService(new ShortUrls());});
+        $this->app->bind('App\Http\Services\ShortUrlService', function($app) { return new ShortUrlService(new ShortUrls()); });
     }
 
     /**
